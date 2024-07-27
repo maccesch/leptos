@@ -1,14 +1,16 @@
+#[cfg(feature = "effects")]
 use any_spawner::Executor;
+#[cfg(feature = "effects")]
+use reactive_graph::effect::{Effect, RenderEffect};
 use reactive_graph::{
     computed::{ArcMemo, Memo},
-    effect::{Effect, RenderEffect},
     prelude::*,
     signal::RwSignal,
 };
-use std::{
-    mem,
-    sync::{Arc, RwLock},
-};
+#[cfg(feature = "effects")]
+use std::mem;
+use std::sync::{Arc, RwLock};
+#[cfg(feature = "effects")]
 use tokio::task;
 
 #[test]
